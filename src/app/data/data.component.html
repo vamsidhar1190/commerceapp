@@ -1,0 +1,132 @@
+<div class="bg-blue-50 p-3">
+  <div class="d-flex justify-content-between">
+    <div><h2 >All products</h2></div>
+    <div class="d-flex gap-2">
+      <div><Button class="btn btn-primary" routerLink="wishlist">wishlist</Button></div>
+    <div><Button class="btn btn-primary" routerLink="cart">Cart</Button></div>
+    <div><Button class="btn btn-primary" routerLink="login">Logout</Button></div>
+    </div>
+  </div>
+
+</div>
+<!-- <div class="p-3 d-flex gap-3">
+    <div class="data" style="width: 350px; ">
+        <div class="main-data" *ngFor="let products of jioproductData">
+          <div style="box-shadow: 0px 0px 1px 1px #ccc " class="p-2">
+            <img
+              [src]="products.imgSrc"
+              alt=""
+              style="
+                width: 320px;
+                height: 300px;
+                border-radius: 20px;
+                padding: 10px;
+                align-items: center;
+              "
+            />
+            <div class="d-flex justify-content-around">
+              <h5 class="">Brand:{{ products.prodBrand }}</h5>
+              <h5>Price:-${{ products.prodprice }}.00</h5>
+            </div>
+            <div class="p-2">
+              <h6>Product Size:-{{ products.prodSize }}</h6>
+              <h6>Product Quantity:-{{ products.prodQua }}</h6>
+      
+              <div *ngFor="let description of products.prodDes">
+                <p>About Product:-{{ description.description }}</p>
+              </div>
+            </div>
+            <div class="d-flex justify-content-around">
+              <button class="btn btn-danger" (click)="addtocart(products)">Buy now</button>
+              <button class="btn btn-primary" (click)="addtowish(products)">Add to wishlist</button> 
+            </div>
+          </div>
+        
+        </div>
+      </div>
+
+      <div>
+        <div class="data" style="width: 350px; ">
+            <div class="main-data" *ngFor="let products of flipkarproductData ">
+              <div style="box-shadow: 0px 0px 1px 1px #ccc " class="p-2">
+                <img
+                  [src]="products.imgSrc"
+                  alt=""
+                  style="
+                    width: 320px;
+                    height: 300px;
+                    border-radius: 20px;
+                    padding: 10px;
+                    align-items: center;
+                  "
+                />
+                <div class="d-flex justify-content-around">
+                  <h5 class="">Brand:{{ products.prodBrand }}</h5>
+                  <h5>Price:-${{ products.prodprice }}.00</h5>
+                </div>
+                <div class="p-2">
+                  <h6>Product Size:-{{ products.prodSize }}</h6>
+                  <h6>Product Quantity:-{{ products.prodQua }}</h6>
+          
+                  <div *ngFor="let description of products.prodDes">
+                    <p>About Product:-{{ description.description }}</p>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-around">
+                  <button class="btn btn-danger" (click)="addtocart(products)">Buy now</button>
+                  <button class="btn btn-primary" (click)="addtowish(products)">Add to wishlist</button> 
+                </div>
+              </div>
+            
+            </div>
+          </div>
+      </div>
+      <div>
+        <div class="data" style="width: 350px; ">
+            <div class="main-data" *ngFor="let products of relianceproducData ">
+              <div style="box-shadow: 0px 0px 1px 1px #ccc " class="p-2">
+                <img
+                  [src]="products.imgSrc"
+                  alt=""
+                  style="
+                    width: 320px;
+                    height: 300px;
+                    border-radius: 20px;
+                    padding: 10px;
+                    align-items: center;
+                  "
+                />
+                <div class="d-flex justify-content-around">
+                  <h5 class="">Brand:{{ products.prodBrand }}</h5>
+                  <h5>Price:-${{ products.prodprice }}.00</h5>
+                </div>
+                <div class="p-2">
+                  <h6>Product Size:-{{ products.prodSize }}</h6>
+                  <h6>Product Quantity:-{{ products.prodQua }}</h6>
+          
+                  <div *ngFor="let description of products.prodDes">
+                    <p>About Product:-{{ description.description }}</p>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-around">
+                  <button class="btn btn-danger" (click)="addtocart(products)" >Buy now</button>
+                  <button class="btn btn-primary" (click)="addtowish(products)" >Add to wishlist</button> 
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+</div> -->
+
+
+<div *ngFor="let prods of products">
+  <h1>{{prods.productcompany}}</h1>
+  <div class="card">
+    <div class="d-flex">
+      <div *ngFor="let image of prods.productimage">
+        <img [src]="image.images" alt="" style="height: 100px; width: 250px;">
+      </div>
+    </div>
+  </div>
+
+</div>

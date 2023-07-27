@@ -1,0 +1,23 @@
+
+
+<div class="bg-blue-200 h-5rem p-4">
+    <h3>E-commerce websites </h3>
+</div>
+
+<div class="contentcenter">
+<form [formGroup]="loginform">
+    <label class="p-2">Enter Name:-</label>
+    <input type="text" class="form-control" placeholder="Enter the Password" formControlName="logname">
+    <label class="p-2">Enter Password:-</label>
+    <input type="password" class="form-control" placeholder="Enter the Password" formControlName="logpass">
+    <button class="btn btn-primary mt-3" (click)="submit()">Submit</button>
+    <button class="btn btn-primary mt-3 ms-3" (click)="signup()">Signup</button>
+</form>
+
+<div *ngIf="showMessage" [ngClass]="{'success-message': loginSuccess, 'failure-message': !loginSuccess}">
+    {{ message }}
+  </div>
+</div>
+
+
+

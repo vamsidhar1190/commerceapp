@@ -1,0 +1,20 @@
+{
+    "products":[
+        {
+            "productcompany":"Flipcart",
+            "productQuantiy":"1",
+            "productSize":"M",
+            "productPrice":234,
+            "prodDes":"nice Product",
+            "productimage":[
+                {
+                    "images":"https://i.pinimg.com/236x/bb/7a/05/bb7a053c0557387cbbc7c3f143063157--blue-trousers-fashion-business.jpg"
+                },
+                {
+                    "images":"https://i.pinimg.com/236x/bb/7a/05/bb7a053c0557387cbbc7c3f143063157--blue-trousers-fashion-business.jpg"
+                }
+                
+            ]
+        }
+    ]
+}

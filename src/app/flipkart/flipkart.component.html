@@ -1,0 +1,159 @@
+<div>
+    <div class="bg-blue-50">
+      <img
+        src="https://i.pinimg.com/originals/aa/70/8d/aa708d1f97a04f6f5a208213f89e1e67.png"
+        style="width:100px"
+        alt=""
+      />
+    </div>
+  </div>
+  
+  <div class="p-2" >
+    <p-button
+      (onClick)="openpopup()"
+      icon="pi pi-external-link"
+      label="show"
+    ></p-button>
+  
+    <p-dialog
+      header="Add the Product Details"
+      [(visible)]="showpopup"
+      [style]="{ width: '50vw' }"
+    >
+      <ng-template pTemplate="header">
+        <span class="text-xl font-bold">Add Product Details</span>
+      </ng-template>
+      <div>
+        <form [formGroup]="productForm">
+       
+          <div>
+            <label for="prodBrand">Brand:-</label>
+            <input
+              id="prodBrand"
+              class="form-control"
+              formControlName="prodBrand"
+              placeholder="Brand"
+            />
+          </div>
+          <div>
+            <label for="prodSize">Size:</label>
+            <input
+              id="prodSize"
+              class="form-control"
+              formControlName="prodSize"
+              placeholder="Size"
+            />
+          </div>
+          <div>
+            <label for="prodQua">Quantity:-</label>
+            <input
+              id="prodQua"
+              class="form-control"
+              formControlName="prodQua"
+              placeholder="Quantity"
+            />
+          </div>
+          <div>
+            <label for="prodQua">Price:-</label>
+            <input
+              id="prodQua"
+              class="form-control"
+              formControlName="prodprice"
+              placeholder="Quantity"
+            />
+          </div>
+          <div>
+            <label class="form-label" for="customFile"
+              >Upload Product File:</label
+            >
+            <input
+              type="file"
+              class="form-control"
+              (change)="onFileChange($event)"
+            />
+            <!-- Display image preview if available -->
+            <img
+              *ngIf="imagePreview"
+              [src]="imagePreview"
+              style="
+                width: 150px;
+                height: 150px;
+                padding: 10px;
+                border-radius: 20px;
+              "
+              alt="Image Preview"
+              class="img-fluid"
+            />
+            <!-- Display PDF preview if available -->
+            <ngx-extended-pdf-viewer
+              *ngIf="pdfUrl"
+              [src]="pdfUrl"
+              height="500px"
+            ></ngx-extended-pdf-viewer>
+          </div>
+  
+          <div formArrayName="prodDes" >
+            <div *ngFor="let prodDes of prodDesForms.controls; let i = index">
+              <div [formGroupName]="i">
+                <label>Product Description:-</label>
+                <input
+                  formControlName="description"
+                  class="form-control"
+                  placeholder="Description"
+                />
+                <button class="btn btn-danger" (click)="removeProdDes(i)">
+                  Remove
+                </button>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary" (click)="addField()">Add</button>
+          <button class="btn btn-primary" (click)="submit()">Submit</button>
+        </form>
+      </div>    
+      <ng-template pTemplate="footer">
+        <p-button
+          icon="pi pi-check"
+          (click)="showpopup = false"
+          label="Ok"
+          styleClass="p-button-text"
+        ></p-button>
+      </ng-template>
+    </p-dialog>
+  </div>
+
+  <div class="data m-3" style="width: 23%;">
+    <div class="main-data" *ngFor="let products of productdata" >
+      <div style="box-shadow: 0px 0px 1px 1px #ccc " class="p-2">
+        <img
+          [src]="products.imgSrc"
+          alt=""
+          style="
+            width: 320px;
+            height: 300px;
+            border-radius: 20px;
+            padding: 10px;
+            align-items: center;
+          "
+        />
+        <div class="d-flex justify-content-around">
+          <h5 class="">Brand:{{ products.prodBrand }}</h5>
+          <h5>Price:-${{ products.prodprice }}.00</h5>
+        </div>
+        <div class="p-2">
+          <h6>Product Size:-{{ products.prodSize }}</h6>
+          <h6>Product Quantity:-{{ products.prodQua }}</h6>
+  
+          <div *ngFor="let description of products.prodDes">
+            <p>About Product:-{{ description.description }}</p>
+          </div>
+        </div>
+        <div class="d-flex justify-content-around">
+          <button class="btn btn-danger">Add now </button>
+          <button class="btn btn-primary">Add to wishlist</button> 
+        </div>
+      </div>
+    
+    </div>
+  </div>
+  
